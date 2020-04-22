@@ -1,6 +1,6 @@
 {
   "name": "@pixelart7/v-calendar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A clean and extendable plugin for building simple attributed calendars in Vue.js.",
   "keywords": [
     "vue",
@@ -16,7 +16,7 @@
   ],
   "homepage": "https://vcalendar.io",
   "author": "Nathan Reyes <nathanreyes@me.com>",
-  "main": "lib/v-calendar.umd.min.js",
+  "main": "lib/@pixelart7/v-calendar.umd.min.js",
   "files": [
     "src",
     "lib"
