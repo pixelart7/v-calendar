@@ -1,6 +1,6 @@
 {
-  "name": "v-calendar",
-  "version": "1.0.5",
+  "name": "@pixelart7/v-calendar",
+  "version": "1.0.6",
   "description": "A clean and extendable plugin for building simple attributed calendars in Vue.js.",
   "keywords": [
     "vue",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nathanreyes/v-calendar"
+    "url": "https://github.com/pixelart7/v-calendar"
   },
   "private": false,
   "license": "MIT",

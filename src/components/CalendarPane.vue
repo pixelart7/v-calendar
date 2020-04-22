@@ -70,6 +70,7 @@ export default {
                       props: {
                         value: this.page,
                         validator: this.canMove,
+                        buddhist: this.buddhist,
                       },
                       on: {
                         input: $event => this.move($event),
@@ -141,6 +142,10 @@ export default {
     canMove: {
       type: Function,
       default: () => true,
+    },
+    buddhist: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

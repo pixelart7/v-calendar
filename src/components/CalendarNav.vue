@@ -89,6 +89,10 @@ export default {
   props: {
     value: { type: Object, default: () => ({ month: 0, year: 0 }) },
     validator: { type: Function, default: () => () => true },
+    buddhist: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -107,8 +111,8 @@ export default {
     },
     title() {
       return this.monthMode
-        ? this.yearIndex
-        : `${this.firstYear} - ${this.lastYear}`;
+        ? this.yearIndex + ((this.buddhist) ? 543 : 0)
+        : `${this.firstYear + ((this.buddhist) ? 543 : 0)} - ${this.lastYear + ((this.buddhist) ? 543 : 0)}`;
     },
     monthItems() {
       const { month: thisMonth, year: thisYear } = pageForDate(new Date());
@@ -132,7 +136,7 @@ export default {
       for (let year = startYear; year < endYear; year += 1) {
         items.push({
           year,
-          label: year,
+          label: year + 543,
           ariaLabel: year,
           isActive: year === this.year,
           isCurrent: year === thisYear,

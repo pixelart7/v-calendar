@@ -53,6 +53,7 @@ export default {
           minPage: this.minPage_,
           maxPage: this.maxPage_,
           canMove: this.canMove,
+          buddhist: this.buddhist,
         },
         on: {
           ...this.$listeners,
@@ -269,6 +270,10 @@ export default {
     transition: String,
     attributes: [Object, Array],
     disablePageSwipe: Boolean,
+    buddhist: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -598,15 +603,19 @@ export default {
         const monthComps = this.$locale.getMonthComps(month, year);
         const prevMonthComps = this.$locale.getPrevMonthComps(month, year);
         const nextMonthComps = this.$locale.getNextMonthComps(month, year);
+        let titleCompBhuddist = this.$locale.format(date, this.$locale.masks.title);
+        if (this.buddhist) {
+          titleCompBhuddist = `${(this.$locale.format(date, this.$locale.masks.title)).split(' ')[0]} ${year + 543}`;
+        }
         page = {
           key,
           month,
           year,
-          title: this.$locale.format(date, this.$locale.masks.title),
+          title: titleCompBhuddist,
           shortMonthLabel: this.$locale.format(date, 'MMM'),
           monthLabel: this.$locale.format(date, 'MMMM'),
-          shortYearLabel: year.toString().substring(2),
-          yearLabel: year.toString(),
+          shortYearLabel: (year + ((this.buddhist) ? 543 : 0)).toString().substring(2),
+          yearLabel: (year + ((this.buddhist) ? 543 : 0)).toString(),
           monthComps,
           prevMonthComps,
           nextMonthComps,
